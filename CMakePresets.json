@@ -1,0 +1,41 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 18,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "sim-debug",
+      "displayName": "Sim Debug",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-sim",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "target-debug",
+      "displayName": "Target Debug",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-target",
+      "toolchainFile": "${sourceDir}/cmake/toolchain-armhf-bullseye.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "build-sim-debug",
+      "configurePreset": "sim-debug"
+    },
+    {
+      "name": "build-target-debug",
+      "configurePreset": "target-debug"
+    }
+  ]
+}

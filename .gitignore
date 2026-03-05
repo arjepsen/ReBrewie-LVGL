@@ -1,0 +1,22 @@
+# Build output
+build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# VS Code
+.vscode/*.log
+.vscode/ipch/
+
+# Linux
+*~
+*.swp
+.DS_Store
+
+# Binaries / objects
+*.o
+*.a
+*.so
+*.elf
