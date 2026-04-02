@@ -1,10 +1,8 @@
 {
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "cmake.configureOnOpen": false,
-  "cmake.buildDirectory": "${workspaceFolder}/build-${command:cmake.activeConfigurePresetName}",
 
-  "git.detectSubmodules": false,
-  "git.ignoreSubmodules": true,
-
-  "git.enableSmartCommit": false
+  "git.enableSmartCommit": false,
+  "git.autofetch": false,
+  "git.confirmSync": false
 }

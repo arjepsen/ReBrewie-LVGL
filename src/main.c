@@ -8,14 +8,17 @@
 #include "src/drivers/sdl/lv_sdl_mousewheel.h"
 #include "src/drivers/sdl/lv_sdl_keyboard.h"
 
-static void log_cb(lv_log_level_t level, const char * buf)
+#include "UI/UI.h"
+
+
+static void log_cb(lv_log_level_t level, const char *buf)
 {
     (void)level;
     fputs(buf, stderr);
     fputc('\n', stderr);
 }
 
-int main(void)
+int main()
 {
     lv_init();
 
@@ -24,18 +27,17 @@ int main(void)
 #endif
 
     /* Create SDL window + input devices */
-    lv_display_t * disp = lv_sdl_window_create(480, 272);
+    lv_display_t *disp = lv_sdl_window_create(480, 272);
     (void)disp;
     lv_sdl_mouse_create();
     lv_sdl_mousewheel_create();
     lv_sdl_keyboard_create();
 
     /* Simple UI sanity check */
-    lv_obj_t * label = lv_label_create(lv_screen_active());
-    lv_label_set_text(label, "LVGL sim is running");
-    lv_obj_center(label);
+    ui_init();
 
-    while(1) {
+    while (1)
+    {
         lv_timer_handler();
         lv_tick_inc(5);
         usleep(5000);
